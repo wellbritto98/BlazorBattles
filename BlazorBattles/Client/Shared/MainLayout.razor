@@ -1,4 +1,5 @@
 ﻿@inherits LayoutComponentBase
+@using Blazored.Toast.Configuration
 
 <div class="page">
     <div class="sidebar">
@@ -7,7 +8,7 @@
 
     <main>
         <div class="top-row px-4">
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+            <TopMenu/>
         </div>
 
         <article class="content px-4">
@@ -15,3 +16,5 @@
         </article>
     </main>
 </div>
+
+<BlazoredToasts Position="ToastPosition.TopCenter" />
