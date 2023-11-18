@@ -1,0 +1,16 @@
+﻿@using BlazorBattles.Client.Services
+@inject IBananaService BananaService
+
+<button @onclick="IncreaseBananaCount" class="btn btn-primary">
+    +
+</button>
+
+@code {
+
+
+    public async Task IncreaseBananaCount()
+    {
+        BananaService.AddBananas(10);
+    }
+}
+
