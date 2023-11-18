@@ -1,4 +1,6 @@
+using BlazorBattles.Server.Data;
 using Microsoft.AspNetCore.ResponseCompression;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +8,14 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+var connString = builder.Configuration["ConnectionStrings:DefaultConnection"];
+// Add services to the container.
+
+builder.Services.AddEntityFrameworkNpgsql()
+    .AddDbContext<DataContext>(options =>
+        options.UseNpgsql(connString)
+    );
+builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 
 var app = builder.Build();
 

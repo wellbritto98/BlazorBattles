@@ -6,10 +6,12 @@ namespace BlazorBattles.Client;
 
 public class CustomAuthStateProvider : AuthenticationStateProvider
 {
+    private readonly HttpClient _httpClient;
     private readonly ILocalStorageService _localStorageService;
 
-    public CustomAuthStateProvider(ILocalStorageService localStorageService)
+    public CustomAuthStateProvider(ILocalStorageService localStorageService, HttpClient httpClient)
     {
+        _httpClient = httpClient;
         _localStorageService = localStorageService;
     }
 

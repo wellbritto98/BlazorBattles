@@ -17,7 +17,7 @@ builder.Services.AddBlazoredToast();
 builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>();
 builder.Services.AddOptions();
 builder.Services.AddAuthorizationCore();
-
+builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddBlazoredLocalStorage();
 
 
